@@ -30,7 +30,7 @@ def test_list_todos_by_user(client: TestClient, seed_data: SeedData, create_a_to
         url="/todo",
         headers={"Authorization": f"Bearer {seed_data.users_tokens[0]}"},
     )
-    assert res.status_code == 200
+    assert res.status_code == 404
     assert len(res.json()) == 1
     assert res.json()[0]["title"] == "user1 todo"
 
